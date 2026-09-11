@@ -1,6 +1,10 @@
 <!doctype html><meta charset="utf-8"><title>ShotDeck</title>
-<body style="font:16px system-ui;padding:40px">กำลังส่งกลับไปที่ ShotDeck บนเครื่องคุณ…
+<body style="font:16px/1.6 system-ui;max-width:720px;margin:40px auto;padding:0 20px">
+<h1>ShotDeck</h1>
+<p>ShotDeck is a personal content-production dashboard used by one creator (the channel <b>แกะเรื่องเล่า · Baa-sics</b>) to plan clips and read statistics of their own YouTube, Facebook, Instagram and TikTok accounts. It runs on the owner's own computer; this page only exists to receive sign-in redirects from those platforms and pass them back to the local app.</p>
+<ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of service</a></li></ul>
+<p>Contact: tanjamza113@gmail.com</p>
 <script>
-// หน้ารับ redirect จาก TikTok (ต้องเป็น https โดเมนจริง) → โยนต่อให้ ShotDeck ที่รันในเครื่อง พร้อม code เดิม · ไม่มีคีย์อะไรอยู่ที่นี่
-location.replace('http://localhost:4400/api/tiktok/cb' + location.search);
+// รับ redirect จาก OAuth (มี ?code= หรือ ?error=) → โยนต่อให้ ShotDeck ในเครื่อง · เปิดหน้าเปล่า ๆ จะเห็นคำอธิบายแทน (Google เช็กว่าหน้าแรก "ตอบสนอง")
+if (/[?&](code|error)=/.test(location.search)) location.replace('http://localhost:4400/api/tiktok/cb' + location.search);
 </script>
