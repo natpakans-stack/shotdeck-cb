@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>ShotDeck</title>
+<body style="font:16px system-ui;padding:40px">กำลังส่งกลับไปที่ ShotDeck บนเครื่องคุณ…
+<script>
+// หน้ารับ redirect จาก TikTok (ต้องเป็น https โดเมนจริง) → โยนต่อให้ ShotDeck ที่รันในเครื่อง พร้อม code เดิม · ไม่มีคีย์อะไรอยู่ที่นี่
+location.replace('http://localhost:4400/api/tiktok/cb' + location.search);
+</script>
