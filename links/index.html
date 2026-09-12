@@ -1,79 +1,153 @@
 <!doctype html><html lang="th"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ของที่พูดถึงในคลิป · แกะเรื่องเล่า</title>
-<meta name="description" content="รวมลิงก์ของที่พูดถึงในคลิปของแกะเรื่องเล่า">
+<meta name="description" content="รวมของที่พูดถึงในคลิปของแกะเรื่องเล่า — กดดูราคาและรายละเอียดได้เลย">
+<meta property="og:title" content="ของที่พูดถึงในคลิป · แกะเรื่องเล่า">
+<meta property="og:description" content="รวมของที่พูดถึงในคลิปของแกะเรื่องเล่า">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{color-scheme:light dark}
-  *{box-sizing:border-box}
-  body{margin:0;padding:26px 16px 48px;background:#F2EBDD;color:#22201C;
-    font:400 15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
-  .wrap{max-width:520px;margin:0 auto}
-  header{text-align:center;margin-bottom:18px}
-  h1{margin:0 0 4px;font-size:19px}
-  .sub{margin:0;color:#6A655D;font-size:13.5px}
-  .find{display:flex;align-items:center;gap:8px;background:#FCFAF5;border:1px solid #E4DCCB;
-    border-radius:12px;padding:10px 13px;margin:0 0 14px}
-  .find input{flex:1;border:0;background:none;font:inherit;color:inherit;outline:none;min-width:0}
-  .find svg{flex:0 0 16px;opacity:.5}
-  .item{display:flex;gap:12px;align-items:center;background:#FCFAF5;border:1px solid #E4DCCB;
-    border-radius:14px;padding:11px 13px;margin:0 0 10px;text-decoration:none;color:inherit;
-    transition:transform .12s,border-color .12s}
-  .item:hover{transform:translateY(-1px);border-color:#C2401F}
-  .item img{width:62px;height:62px;flex:0 0 62px;object-fit:cover;border-radius:10px;background:#EFE7D6}
-  .item .ph{width:62px;height:62px;flex:0 0 62px;border-radius:10px;background:#EFE7D6}
-  .tx{min-width:0}
-  .n{display:block;font-weight:600;font-size:14px;line-height:1.42;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .m{display:block;margin-top:4px;color:#6A655D;font-size:12.5px;
-    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-  .pg{display:flex;justify-content:center;align-items:center;gap:6px;margin:18px 0 0;flex-wrap:wrap}
-  .pg button{min-width:34px;min-height:34px;padding:0 10px;border:1px solid #E4DCCB;background:#FCFAF5;
-    color:inherit;border-radius:9px;font:inherit;font-size:13px;cursor:pointer}
-  .pg button[aria-current=true]{background:#C2401F;border-color:#C2401F;color:#fff}
-  .pg button:disabled{opacity:.4;cursor:default}
-  .note{margin:22px 0 0;text-align:center;color:#6A655D;font-size:12px;line-height:1.6}
-  .empty{text-align:center;color:#6A655D;padding:34px 0}
-  @media (prefers-color-scheme:dark){
-    body{background:#17150F;color:#F4F0E9}
-    .item,.find{background:#201D16;border-color:#33302A}
-    .item img,.item .ph{background:#2B2720}
-    .sub,.m,.note,.empty{color:#A7A199}
-    .pg button{background:#201D16;border-color:#33302A}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0f0f14; --text:#e8e8ed; --text-dim:#8b8ba0;
+    --accent:#c94277; --radius:16px;
+    --font:'IBM Plex Sans Thai',-apple-system,BlinkMacSystemFont,sans-serif;
   }
-</style></head><body><div class="wrap">
-  <header><h1>ของที่พูดถึงในคลิป</h1><p class="sub">แกะเรื่องเล่า · Baa-sics</p></header>
-  <label class="find">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <input id="q" type="search" placeholder="ค้นหาของที่อยากได้…" autocomplete="off" aria-label="ค้นหาสินค้า">
-  </label>
-  <div id="list"></div>
-  <div class="pg" id="pg"></div>
-  <p class="note">ลิงก์ในหน้านี้เป็นลิงก์พันธมิตร<br>กดซื้อแล้วเราได้ค่าแนะนำเล็กน้อย ราคาที่คุณจ่ายเท่าเดิม</p>
-</div>
+  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  .hero{min-height:34vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:64px 24px 56px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;inset:auto 0 -40% 0;height:70%;
+    background:radial-gradient(ellipse at 50% 0,rgba(201,66,119,.22),transparent 65%);pointer-events:none}
+  .hero .mark{width:72px;height:72px;border-radius:50%;object-fit:cover;margin-bottom:18px;
+    border:2px solid rgba(255,255,255,.12);position:relative;z-index:1}
+  .hero h1{font-size:clamp(1.7rem,4.4vw,2.4rem);font-weight:700;letter-spacing:-.02em;position:relative;z-index:1}
+  .hero p{color:var(--text-dim);font-size:.95rem;margin-top:8px;position:relative;z-index:1}
+
+  .search-float{position:relative;z-index:10;max-width:720px;margin:-30px auto;padding:0 24px}
+  .search-box{background:#fff;border-radius:16px;border:1px solid #e5e5e7;
+    box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);
+    display:flex;align-items:center;gap:10px;padding:14px 18px}
+  .search-box svg{width:17px;height:17px;flex:0 0 17px;color:#86868b}
+  .search-box input{flex:1;border:0;outline:none;background:none;min-width:0;
+    font:400 .95rem/1.5 var(--font);color:#1d1d1f}
+  .search-box input::placeholder{color:#a1a1a6}
+
+  .light-section{background:#f5f5f7;color:#1d1d1f;padding:70px 0 0}
+  .section{max-width:1100px;margin:0 auto;padding:0 24px}
+  .toolbar{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+  .section-title{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#86868b}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+  .filter-btn{font:500 .78rem var(--font);padding:6px 14px;border-radius:20px;border:1px solid #d2d2d7;
+    background:transparent;color:#86868b;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .filter-btn:hover{border-color:#86868b;color:#1d1d1f}
+  .filter-btn.active{background:#1d1d1f;border-color:#1d1d1f;color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .card{display:flex;flex-direction:column;background:#fff;border:1px solid #e5e5e7;border-radius:var(--radius);
+    overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.09);border-color:#d2d2d7}
+  .card-visual{aspect-ratio:4/3;background:#f0f0f2;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .card-visual img{width:100%;height:100%;object-fit:cover;display:block}
+  .card-visual .noimg{font-size:.75rem;color:#a1a1a6}
+  .card-body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
+  .card-type{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#c94277;margin-bottom:8px}
+  .card h3{font-size:.98rem;font-weight:600;line-height:1.45;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .tag{font-size:.72rem;font-weight:500;padding:4px 10px;border-radius:6px;background:#f5f5f7;border:1px solid #e5e5e7;color:#86868b}
+  .card-footer{display:flex;align-items:center;gap:8px;border-top:1px solid #e5e5e7;padding:13px 18px;
+    font-size:.8rem;color:#86868b}
+  .card-footer b{color:#1d1d1f;font-size:.95rem;font-weight:600}
+  .card-footer .go{margin-left:auto;color:#c94277;font-weight:600}
+
+  .pagination{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:40px;flex-wrap:wrap}
+  .page-btn,.page-arrow{font:500 .85rem var(--font);height:36px;border-radius:8px;border:1px solid #d2d2d7;
+    background:#fff;color:#1d1d1f;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+  .page-btn{width:36px}.page-arrow{padding:0 14px;gap:6px}
+  .page-btn:hover,.page-arrow:hover{border-color:#86868b}
+  .page-btn.active{background:#1d1d1f;border-color:#1d1d1f;color:#fff}
+  .page-arrow:disabled{opacity:.35;cursor:default}
+  .empty{text-align:center;color:#86868b;padding:56px 0}
+
+  .footer{text-align:center;padding:36px 24px 60px;border-top:1px solid #e5e5e7;
+    max-width:1100px;margin:80px auto 0;color:#86868b;font-size:.82rem;line-height:1.75}
+  .footer strong{color:#1d1d1f}
+  @media(max-width:560px){.hero{min-height:26vh;padding:48px 20px 52px}.light-section{padding-top:60px}}
+</style></head><body>
+
+  <header class="hero">
+    <img class="mark" src="img/logo.jpg" alt="" onerror="this.style.display='none'">
+    <h1>ของที่พูดถึงในคลิป</h1>
+    <p>แกะเรื่องเล่า · Baa-sics</p>
+  </header>
+
+  <div class="search-float">
+    <label class="search-box">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>
+      <input id="q" type="search" placeholder="ค้นหาของที่อยากได้ หรือชื่อคลิป…" autocomplete="off" aria-label="ค้นหาสินค้า">
+    </label>
+  </div>
+
+  <div class="light-section">
+    <section class="section">
+      <div class="toolbar">
+        <div class="section-title">สินค้า <span id="count"></span></div>
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-f="all">ทั้งหมด</button>
+          <button class="filter-btn" data-f="lo">ต่ำกว่า ฿300</button>
+          <button class="filter-btn" data-f="mid">฿300 – ฿1,000</button>
+          <button class="filter-btn" data-f="hi">เกิน ฿1,000</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="pagination" id="pg"></div>
+      <footer class="footer">
+        <p><strong>ลิงก์ในหน้านี้เป็นลิงก์พันธมิตร</strong><br>
+        กดซื้อแล้วเราได้ค่าแนะนำเล็กน้อย ราคาที่คุณจ่ายเท่าเดิม</p>
+      </footer>
+    </section>
+  </div>
+
 <script>
-const ALL = [{"u":"https://s.shopee.co.th/60RU5wuj4X","n":"Sea to summit Travel Wallet RFID Size M กระเป๋าสตางค์ป้องกันโจรกรรม RFID","p":"฿930","f":"วัดถือเงินสดได้แค่แสน","i":"img/01.jpg"},{"u":"https://shopee.co.th/universal-link/product/16621457/46262821983?gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMCDZ1QISG3Y9eQ8yPVgAOiad7g2PqyaqkWO_9nGG8rv2GeSvTKVy0YH9Uq_tAMSkaB8ROm0FmD1_y4Fc6qmNpcGhlcnRleHTEgQAAAAwrSjGBy1j3ryF5ggDqjLZG33VV6ymw5THLFx9MipkdIxd3tcRuxveat4q6mHXEVWgkEnKIuBBDFR5ZoJDONb7ZM9Na2MMSQnihrpKnL4oIi3ktld5MbN2cLNzWdFkPEDl7Zp29ZAnHMXdW18ZVeUzeb1_ufE37U2YjwXNskw&utm_campaign=-&utm_content=----&utm_medium=affiliates&utm_source=an_15315210276","n":"[เลือกขนาดข้างใน]วาสลีน กลูต้าไฮยา PDRN 170-300มล Vaseline Gluta-Hya PDRN","p":"฿159","f":"ผิวแห้งกร้านอยากเติมความฉ่ำโกลว์","i":"img/02.jpg"},{"u":"https://s.shopee.co.th/6VNkgrsp3e","n":"Xiaomi Smart Band 10 หน้าจอ AMOLED ขนาด 1.72 นิ้ว รองรับโหมดกีฬามากกว่า 150 โหมด วัดอัตราการเต้นของหัวใจ","p":"฿2.7พัน","f":"เข็มขัดหลุดมือเพราะตาชั่งทำพิษ","i":"img/03.jpg"},{"u":"https://s.shopee.co.th/8plfT9jwLN","n":"กระเป๋าคาดเอวซ่อนลับ ป้องกัน RFID ปลอดภัย สำหรับพาสปอร์ต บัตรเครดิต","p":"฿280","f":"เงินซุกกุฏิร้อยล้าน มาจากไหนกันแน่","i":"img/04.jpg"},{"u":"https://s.shopee.co.th/2VrbvW83BG","n":"พร้อมส่ง KENZZO : HEMNES ชั้นวางรองเท้าพร้อมราวแขวน ชั้นวางของ ราวแขวน ราวแขวนเสื้อผ้า ชั้นวางรองเท้า ราวแขวนเอนกประสงค์","p":"฿99","f":"มียายคนหนึ่งไม่สนเงิน 1 ล้านดอลลาร์ ขอแค่อยู่บ้านหลังเดิม","i":"img/05.jpg"},{"u":"https://shopee.co.th/universal-link/product/172431741/41402168639?gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMCDZ1QISG3Y9eQ8yPVgAOiad7g2PqyaqkWO_9nGG8rv2GeSvTKVy0YH9Uq_tAMSkaB8ROm0FmD1_y4Fc6qmNpcGhlcnRleHTEgwAAAAzUpZ-srPleJP76omxy-gixtUuY9yyIQRkvNiJ8kUl0K3CgvjcxfUJGuluG9Yx4Fj-LkEDLZLUZTCbsJGztkDqeIToJBfToWcLDgDjm4yvUKpikwi-1KGJs0U3PW2ZvPG47sIZ4wS8FusEVzjV5pdiGVI3zjIwTE2qiuoaboog7&utm_campaign=-&utm_content=----&utm_medium=affiliates&utm_source=an_15315210276","n":"นีเวีย ลูมินัส630 สกิน โกลว์ เซรั่ม เซรั่มผิวใส เซรั่มทาหน้า30 มล.2 ชิ้นNIVEA","p":"฿599","f":"หน้าหมองแต่งยังไงก็ไม่ฉ่ำ","i":"img/06.jpg"},{"u":"https://s.shopee.co.th/9V1MGNhOyG","n":"adidas ฟุตบอล Liverpool FC 26/27 Home Fan Jersey ผู้ชาย สีแดงเบอร์กันดี LE5779","p":"฿800","f":"ลิเวอร์พูลอาจไม่ได้มองหาแค่แบ็กขวา","i":"img/07.jpg"},{"u":"https://s.shopee.co.th/80CYTcn717","n":"[ประกันศูนย์ไทย] FiiO JadeAudio KA11 ตัวถอดรหัสและขยายสัญญาณเสียง ชิป DAC CS43131 ประกันศูนย์ไทย","p":"฿1.5พัน","f":"ชิปสามนาโนเมตรอาจไม่ได้ยาวสามนาโนเมตรจริง","i":"img/08.jpg"},{"u":"https://s.shopee.co.th/2LYBjD8gXG","n":"ส่งจากไทย🚚ติดผนัง ที่เก็บแปรงแต่งหน้ากล่องใส่ของน่ารักชั้นวางของบนโต๊ะทํางานที่เก็บเครื่องเขียนบนเดส","p":"฿208","f":"การออกแบบเว็บไซต์ใหม่ของ Stripe","i":"img/09.jpg"},{"u":"https://s.shopee.co.th/9peABRbLCV","n":"Google Fitbit Air ของแท้ 100% รับประกันร้าน 7 วัน ประกันศูนย์ 1 ปี","p":"","f":"9.9 มาจากไหน — ที่มาของวันเลขซ้ำ","i":"img/10.jpg"}];
-const PER = 8;
-const list = document.getElementById('list'), pg = document.getElementById('pg'), q = document.getElementById('q');
-let page = 1, hits = ALL;
+const ALL = [{"u":"https://s.shopee.co.th/60RU5wuj4X","n":"Sea to summit Travel Wallet RFID Size M กระเป๋าสตางค์ป้องกันโจรกรรม RFID","p":"฿930","f":"วัดถือเงินสดได้แค่แสน","v":930,"i":"img/01.jpg"},{"u":"https://shopee.co.th/universal-link/product/16621457/46262821983?gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMCDZ1QISG3Y9eQ8yPVgAOiad7g2PqyaqkWO_9nGG8rv2GeSvTKVy0YH9Uq_tAMSkaB8ROm0FmD1_y4Fc6qmNpcGhlcnRleHTEgQAAAAwrSjGBy1j3ryF5ggDqjLZG33VV6ymw5THLFx9MipkdIxd3tcRuxveat4q6mHXEVWgkEnKIuBBDFR5ZoJDONb7ZM9Na2MMSQnihrpKnL4oIi3ktld5MbN2cLNzWdFkPEDl7Zp29ZAnHMXdW18ZVeUzeb1_ufE37U2YjwXNskw&utm_campaign=-&utm_content=----&utm_medium=affiliates&utm_source=an_15315210276","n":"[เลือกขนาดข้างใน]วาสลีน กลูต้าไฮยา PDRN 170-300มล Vaseline Gluta-Hya PDRN","p":"฿159","f":"ผิวแห้งกร้านอยากเติมความฉ่ำโกลว์","v":159,"i":"img/02.jpg"},{"u":"https://s.shopee.co.th/6VNkgrsp3e","n":"Xiaomi Smart Band 10 หน้าจอ AMOLED ขนาด 1.72 นิ้ว รองรับโหมดกีฬามากกว่า 150 โหมด วัดอัตราการเต้นของหัวใจ","p":"฿2.7พัน","f":"เข็มขัดหลุดมือเพราะตาชั่งทำพิษ","v":2700,"i":"img/03.jpg"},{"u":"https://s.shopee.co.th/8plfT9jwLN","n":"กระเป๋าคาดเอวซ่อนลับ ป้องกัน RFID ปลอดภัย สำหรับพาสปอร์ต บัตรเครดิต","p":"฿280","f":"เงินซุกกุฏิร้อยล้าน มาจากไหนกันแน่","v":280,"i":"img/04.jpg"},{"u":"https://s.shopee.co.th/2VrbvW83BG","n":"พร้อมส่ง KENZZO : HEMNES ชั้นวางรองเท้าพร้อมราวแขวน ชั้นวางของ ราวแขวน ราวแขวนเสื้อผ้า ชั้นวางรองเท้า ราวแขวนเอนกประสงค์","p":"฿99","f":"มียายคนหนึ่งไม่สนเงิน 1 ล้านดอลลาร์ ขอแค่อยู่บ้านหลังเดิม","v":99,"i":"img/05.jpg"},{"u":"https://shopee.co.th/universal-link/product/172431741/41402168639?gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMCDZ1QISG3Y9eQ8yPVgAOiad7g2PqyaqkWO_9nGG8rv2GeSvTKVy0YH9Uq_tAMSkaB8ROm0FmD1_y4Fc6qmNpcGhlcnRleHTEgwAAAAzUpZ-srPleJP76omxy-gixtUuY9yyIQRkvNiJ8kUl0K3CgvjcxfUJGuluG9Yx4Fj-LkEDLZLUZTCbsJGztkDqeIToJBfToWcLDgDjm4yvUKpikwi-1KGJs0U3PW2ZvPG47sIZ4wS8FusEVzjV5pdiGVI3zjIwTE2qiuoaboog7&utm_campaign=-&utm_content=----&utm_medium=affiliates&utm_source=an_15315210276","n":"นีเวีย ลูมินัส630 สกิน โกลว์ เซรั่ม เซรั่มผิวใส เซรั่มทาหน้า30 มล.2 ชิ้นNIVEA","p":"฿599","f":"หน้าหมองแต่งยังไงก็ไม่ฉ่ำ","v":599,"i":"img/06.jpg"},{"u":"https://s.shopee.co.th/9V1MGNhOyG","n":"adidas ฟุตบอล Liverpool FC 26/27 Home Fan Jersey ผู้ชาย สีแดงเบอร์กันดี LE5779","p":"฿800","f":"ลิเวอร์พูลอาจไม่ได้มองหาแค่แบ็กขวา","v":800,"i":"img/07.jpg"},{"u":"https://s.shopee.co.th/80CYTcn717","n":"[ประกันศูนย์ไทย] FiiO JadeAudio KA11 ตัวถอดรหัสและขยายสัญญาณเสียง ชิป DAC CS43131 ประกันศูนย์ไทย","p":"฿1.5พัน","f":"ชิปสามนาโนเมตรอาจไม่ได้ยาวสามนาโนเมตรจริง","v":1500,"i":"img/08.jpg"},{"u":"https://s.shopee.co.th/2LYBjD8gXG","n":"ส่งจากไทย🚚ติดผนัง ที่เก็บแปรงแต่งหน้ากล่องใส่ของน่ารักชั้นวางของบนโต๊ะทํางานที่เก็บเครื่องเขียนบนเดส","p":"฿208","f":"การออกแบบเว็บไซต์ใหม่ของ Stripe","v":208,"i":"img/09.jpg"},{"u":"https://s.shopee.co.th/9peABRbLCV","n":"Google Fitbit Air ของแท้ 100% รับประกันร้าน 7 วัน ประกันศูนย์ 1 ปี","p":"","f":"9.9 มาจากไหน — ที่มาของวันเลขซ้ำ","v":0,"i":"img/10.jpg"}], PER = 9;
+const grid = document.getElementById('grid'), pg = document.getElementById('pg'),
+      q = document.getElementById('q'), cnt = document.getElementById('count');
+let page = 1, band = 'all', hits = ALL;
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const inBand = x => band === 'all' || (band === 'lo' ? x.v > 0 && x.v < 300
+  : band === 'mid' ? x.v >= 300 && x.v <= 1000 : x.v > 1000);
+function apply() {
+  const t = q.value.trim().toLowerCase();
+  hits = ALL.filter(x => inBand(x) && (!t || (x.n + ' ' + x.f).toLowerCase().includes(t)));
+  page = 1; draw();
+}
 function draw() {
-  const start = (page - 1) * PER, rows = hits.slice(start, start + PER);
-  list.innerHTML = rows.length ? rows.map(x =>
-    '<a class="item" href="' + esc(x.u) + '" target="_blank" rel="noopener sponsored">' +
-      (x.i ? '<img src="' + esc(x.i) + '" alt="" loading="lazy">' : '<span class="ph"></span>') +
-      '<span class="tx"><span class="n">' + esc(x.n) + '</span>' +
-      '<span class="m">' + esc(x.p) + (x.f ? ' · จากคลิป “' + esc(x.f) + '”' : '') + '</span></span></a>').join('')
-    : '<p class="empty">ไม่เจอของที่ค้น ลองคำอื่นดู</p>';
+  cnt.textContent = hits.length ? '· ' + hits.length + ' ชิ้น' : '';
+  const rows = hits.slice((page - 1) * PER, page * PER);
+  grid.innerHTML = rows.length ? rows.map(x =>
+    '<a class="card" href="' + esc(x.u) + '" target="_blank" rel="noopener sponsored">' +
+      '<div class="card-visual">' + (x.i ? '<img src="' + esc(x.i) + '" alt="" loading="lazy">' : '<span class="noimg">ไม่มีรูป</span>') + '</div>' +
+      '<div class="card-body"><div class="card-type">ของที่พูดถึงในคลิป</div>' +
+        '<h3>' + esc(x.n) + '</h3>' +
+        (x.f ? '<div class="card-tags"><span class="tag">' + esc(x.f) + '</span></div>' : '') +
+      '</div>' +
+      '<div class="card-footer"><b>' + esc(x.p || '—') + '</b><span class="go">ดูสินค้า →</span></div>' +
+    '</a>').join('') : '<p class="empty">ไม่เจอของที่ค้น ลองคำอื่นดู</p>';
   const pages = Math.max(1, Math.ceil(hits.length / PER));
   pg.innerHTML = pages < 2 ? '' :
-    '<button data-go="' + (page - 1) + '"' + (page === 1 ? ' disabled' : '') + ' aria-label="หน้าก่อน">‹</button>' +
-    Array.from({length: pages}, (_, i) =>
-      '<button data-go="' + (i + 1) + '" aria-current="' + (i + 1 === page) + '">' + (i + 1) + '</button>').join('') +
-    '<button data-go="' + (page + 1) + '"' + (page === pages ? ' disabled' : '') + ' aria-label="หน้าถัดไป">›</button>';
+    '<button class="page-arrow" data-go="' + (page - 1) + '"' + (page === 1 ? ' disabled' : '') + '>← ก่อนหน้า</button>' +
+    Array.from({length: pages}, (_, i) => '<button class="page-btn' + (i + 1 === page ? ' active' : '') +
+      '" data-go="' + (i + 1) + '">' + (i + 1) + '</button>').join('') +
+    '<button class="page-arrow" data-go="' + (page + 1) + '"' + (page === pages ? ' disabled' : '') + '>ถัดไป →</button>';
 }
 pg.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (!b || b.disabled) return;
-  page = +b.dataset.go; draw(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-q.addEventListener('input', () => { const t = q.value.trim().toLowerCase();
-  hits = t ? ALL.filter(x => (x.n + ' ' + x.f).toLowerCase().includes(t)) : ALL; page = 1; draw(); });
-draw();
+  page = +b.dataset.go; draw(); document.querySelector('.light-section').scrollIntoView({ behavior: 'smooth' }); });
+document.getElementById('filters').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if (!b) return;
+  document.querySelectorAll('#filters .filter-btn').forEach(x => x.classList.toggle('active', x === b));
+  band = b.dataset.f; apply(); });
+q.addEventListener('input', apply);
+apply();
 </script></body></html>
