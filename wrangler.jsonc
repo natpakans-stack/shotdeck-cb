@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "baasics",
+  "compatibility_date": "2026-09-11",
+  "observability": { "enabled": true },
+  // เอาเฉพาะโฟลเดอร์ links ขึ้นเว็บ — ตั้งเป็น "." จะอัปทั้ง repo รวม .git ขึ้นไปด้วย
+  "assets": { "directory": "./links" }
+}
