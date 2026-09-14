@@ -46,7 +46,9 @@
   .filter-btn:hover{border-color:#86868b;color:#1d1d1f}
   .filter-btn.active{background:#1d1d1f;border-color:#1d1d1f;color:#fff}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  /* มือถือ 2 คอลัมน์เสมอ — สกิมเห็นของได้เยอะกว่าต่อหนึ่งหน้าจอ · จอกว้างค่อยปล่อยให้ auto-fill */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:680px){.grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}}
   .card{display:flex;flex-direction:column;background:#fff;border:1px solid #e5e5e7;border-radius:var(--radius);
     overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
   .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.09);border-color:#d2d2d7}
@@ -83,6 +85,17 @@
   @media(max-width:560px){.mascot-half{width:220px;height:146px}.footer{margin-top:170px}}
   .footer strong{color:#1d1d1f}
   @media(max-width:560px){.hero{min-height:26vh;padding:48px 20px 52px}.light-section{padding-top:60px}}
+  /* การ์ดแคบลงครึ่งหนึ่งบนมือถือ — บีบระยะขอบกับขนาดตัวอักษรให้ชื่อสินค้ายังอ่านออกสองบรรทัด */
+  @media(max-width:679px){
+    .section{padding:0 16px}
+    .card-body{padding:12px}
+    .card-type{font-size:.64rem;margin-bottom:5px;letter-spacing:.05em}
+    .card h3{font-size:.86rem;line-height:1.4}
+    .card-tags{margin-top:10px}
+    .tag{font-size:.66rem;padding:3px 8px}
+    .card-footer{padding:10px 12px;font-size:.72rem;gap:6px}
+    .card-footer b{font-size:.86rem}
+  }
 </style></head><body>
 
   <header class="hero">
